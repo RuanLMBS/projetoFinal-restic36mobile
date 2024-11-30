@@ -17,6 +17,7 @@ import { Button } from '../../components/Button';
 import api from '../../services/api';
 import { AuthContext } from '../../context/AuthContext';
 import { VagaProps } from '../../utils/Types';
+import { Linking } from 'react-native';
 
 
 export default function Details({route, navigation }) {
@@ -42,9 +43,15 @@ export default function Details({route, navigation }) {
         getVaga();
     }, [])
 
-    const teste = () => {
-        console.log(vaga)
-    }
+    const redirecionarWhatsapp = () => {
+        // Remove todos os caracteres que não são números
+        const apenas_numeros = vaga.telefone.replace(/\D/g, '');
+    
+        // Construir o link do WhatsApp com o número de telefone formatado
+        const whatsappLink = `https://api.whatsapp.com/send?phone=55${apenas_numeros}`;
+        console.log(whatsappLink);
+        Linking.openURL(whatsappLink);
+    };
 
     return (
         <Wrapper>
@@ -68,12 +75,12 @@ export default function Details({route, navigation }) {
                     <Description>Empresa: {vaga.empresa}</Description>
                     <Description>Status: {vaga.status}</Description>
                 </ContentContainer>
-                {vaga.status === 'Ativo' && (
+                {vaga.status === 'aberta' && ( 
                     <Button 
-                    title="Entrar em contato" 
-                    noSpacing={true} 
-                    variant='primary'
-                    onPress={teste}
+                        title="Entrar em contato" 
+                        noSpacing={true} 
+                        variant='primary'
+                        onPress={redirecionarWhatsapp}
                     />
                 )}
                 
