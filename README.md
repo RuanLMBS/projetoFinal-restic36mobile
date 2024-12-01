@@ -1,12 +1,14 @@
-## Clone this repo
+## Passo 1: Clone este repositório
 ```
  git clone https://github.com/RuanLMBS/projetoFinal-restic36mobile.git
 ```
 
-## Configurar a const api em arquivo: /projetoFinal-restic36mobile/src/services/api.ts com o endereço IP da maquina ex: baseURL: 'http://192.168.x.xxx:3000/api'
+## Passo 2:
+```
+Configurar a const api em arquivo: /projetoFinal-restic36mobile/src/services/api.ts com o endereço IP da maquina ex: baseURL: 'http://192.168.x.xxx:3000/api'
+```
 
-## No Vs code ou similar terminal: 1 
-
+## Passo 3 (No Vs code ou similar terminal: 1) 
 ```
  cd vagas-api
 
